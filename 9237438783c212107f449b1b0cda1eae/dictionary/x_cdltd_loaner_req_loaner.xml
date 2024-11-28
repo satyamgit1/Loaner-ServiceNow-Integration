@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="10b743c783c212107f449b1b0cda1e85" label="Loaner" max_length="40" name="x_cdltd_loaner_req_loaner" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="LoanerName" max_length="40" name="loanername" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+    </element>
+</database>
