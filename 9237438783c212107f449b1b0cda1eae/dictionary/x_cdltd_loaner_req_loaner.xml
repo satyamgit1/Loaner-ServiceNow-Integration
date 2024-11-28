@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="10b743c783c212107f449b1b0cda1e85" label="Loaner" max_length="40" name="x_cdltd_loaner_req_loaner" type="collection">
+        <element label="Additional comments" max_length="80" name="additional_comments" type="field_name"/>
+        <element attributes="encode_utf8=false" label="Configuration item" max_length="32" name="configuration_item" reference="cmdb_ci" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="sc" label="Depot" max_length="40" name="depot" type="string">
+            <choice>
+                <element inactive_on_update="false" label="New York" sequence="0" value="ny"/>
+                <element inactive_on_update="false" label="London" sequence="1" value="london"/>
+                <element inactive_on_update="false" label="Buenos Aires" sequence="2" value="ba"/>
+                <element inactive_on_update="false" label="Santa Clara" sequence="3" value="sc"/>
+                <element inactive_on_update="false" label="Singapore" sequence="4" value="singapore"/>
+                <element inactive_on_update="false" label="Sydney" sequence="5" value="sydney"/>
+                <element inactive_on_update="false" label="Other" sequence="6" value="other"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Description" max_length="40" name="description" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="End date" mandatory="true" max_length="40" name="end_date" type="glide_date_time"/>
         <element attributes="edge_encryption_enabled=true" choice="1" default="cmdb_ci_computer" label="Item type" max_length="40" name="item_type" type="string">
             <choice>
@@ -9,10 +23,27 @@
             </choice>
         </element>
         <element attributes="edge_encryption_enabled=true" label="LoanerName" max_length="40" name="loanername" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Location to be used" max_length="40" name="location_to_be_used" type="string"/>
         <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
         <element attributes="encode_utf8=false" label="Requested for" mandatory="true" max_length="32" name="requested_for" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Short description" max_length="40" name="short_description" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Start date" mandatory="true" max_length="40" name="start_date" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="13" label="State" max_length="40" name="state" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Requested" sequence="0" value="13"/>
+                <element inactive_on_update="false" label="Reserved" sequence="1" value="14"/>
+                <element inactive_on_update="false" label="Deployment Prep" sequence="2" value="15"/>
+                <element inactive_on_update="false" label="Ready for Pickup" sequence="3" value="16"/>
+                <element inactive_on_update="false" label="Checked Out" sequence="4" value="17"/>
+                <element inactive_on_update="false" label="Post Deployment" sequence="5" value="18"/>
+                <element inactive_on_update="false" label="Closed Complete" sequence="6" value="3"/>
+            </choice>
+        </element>
+        <element label="Work Notes" max_length="80" name="u_field_name_5" type="field_name"/>
         <index name="index">
+            <element name="configuration_item"/>
+        </index>
+        <index name="index2">
             <element name="requested_for"/>
         </index>
     </element>
